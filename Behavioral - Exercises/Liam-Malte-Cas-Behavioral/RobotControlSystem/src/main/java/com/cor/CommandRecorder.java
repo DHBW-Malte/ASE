@@ -1,17 +1,14 @@
-package com.cor.commands;
+package com.cor;
 
-import com.cor.Command;
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class CommandRecorder {
-
     public void save(List<Command> commands, Path filePath) {
         JSONArray jsonArray = new JSONArray();
 
@@ -22,8 +19,12 @@ public class CommandRecorder {
             jsonArray.put(jsonObject);
         }
 
-        try (FileWriter file = new FileWriter(filePath.toFile())) {
-            file.write(jsonArray.toString(4));
+        try {
+            Path parent = filePath.getParent();
+            if (parent != null) {
+                Files.createDirectories(parent);
+            }
+            Files.writeString(filePath, jsonArray.toString(4));
         } catch (IOException e) {
             System.err.println("Error writing command history: " + e.getMessage());
         }

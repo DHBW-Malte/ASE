@@ -1,8 +1,6 @@
 package com.cor;
 
 public class Robot {
-    private int x;
-    private int y;
     private int direction;
     private boolean carryingObject;
 

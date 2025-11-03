@@ -1,4 +1,7 @@
-package com.cor;
+package com.cor.commands;
+
+import com.cor.Command;
+import com.cor.Robot;
 
 public class TurnRight implements Command {
     private final Robot robot;

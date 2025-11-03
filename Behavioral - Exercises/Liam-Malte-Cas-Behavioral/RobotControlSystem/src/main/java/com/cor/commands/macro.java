@@ -1,5 +1,6 @@
-package com.cor;
+package com.cor.commands;
 
+import com.cor.Command;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,7 +18,7 @@ public class Macro implements Command {
         commands.remove(command);
     }
 
-´    public void clear() {
+    public void clear() {
         commands.clear();
     }
 
