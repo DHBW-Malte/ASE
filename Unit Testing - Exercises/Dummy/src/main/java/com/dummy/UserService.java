@@ -81,58 +81,6 @@ public class UserService {
 
 // Supporting classes and interfaces
 
-interface UserRepository {
-    boolean existsByEmail(String email);
-
-    User save(User user);
-
-    User findByEmail(String email);
-}
-
-interface EmailService {
-    void sendWelcomeEmail(String email, String name);
-
-    void sendPasswordResetEmail(String email);
-}
-
-class User {
-    private String name;
-    private String email;
-    private int age;
-
-    public User(String name, String email, int age) {
-        this.name = name;
-        this.email = email;
-        this.age = age;
-    }
-
-    // Getters
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    // Setters
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-}
-
 class RegistrationResult {
     private boolean success;
     private String message;
